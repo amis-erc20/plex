@@ -35,8 +35,6 @@ export class Onboarding extends React.Component<Props, State> {
 
         return (
             <div>
-                <h1>Onboarding!</h1>
-
                 {
                     step === 0
                         ? <SplashPage handleEnterApp={this.handleEnterApp} />

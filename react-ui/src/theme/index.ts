@@ -15,6 +15,7 @@ export const fontFamily = {
     base: "DIN, sans-serif",
     bold: "DIN-Bold, sans-serif",
     title: "DIN-Black, sans-serif",
+    light: "Din LightAlternate, sans-serif",
 };
 
 export const fontSize = {
