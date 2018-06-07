@@ -207,7 +207,7 @@ class AppRouter extends React.Component<Props, {}> {
         return (
             <Router history={history} onUpdate={this.trackPageView}>
                 <Route path="/">
-                    <IndexRoute component={OnboardingContainer}/>
+                    <IndexRoute component={OnboardingContainer} />
                     <Route path="/" component={AppContainer}>
                         <Route component={EnsureAgreedToTermsContainer}>
                             <Route path="/dashboard" component={DashboardContainer} />

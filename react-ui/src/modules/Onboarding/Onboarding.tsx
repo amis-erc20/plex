@@ -1,6 +1,11 @@
 import * as React from "react";
 import { TermsAgreement } from "./TermsAgreement";
+
 import SplashPage from "./SplashPage/SplashPage";
+
+import { Navigation } from "./Navigation/Navigation";
+
+import { OnboardingContainer } from "./StyledComponents";
 
 export interface Props {
     agreeToTerms: boolean;
@@ -34,17 +39,19 @@ export class Onboarding extends React.Component<Props, State> {
         const { step } = this.state;
 
         return (
-            <div>
-                {
-                    step === 0
-                        ? <SplashPage handleEnterApp={this.handleEnterApp} />
-                        : <TermsAgreement
-                            agreeToTerms={agreeToTerms}
-                            handleSetError={handleSetError}
-                            handleAgreeToTerms={handleAgreeToTerms}
-                        />
-                }
-            </div>
+            <OnboardingContainer>
+                <Navigation/>
+
+                {step === 0 ? (
+                    <SplashPage handleEnterApp={this.handleEnterApp} />
+                ) : (
+                    <TermsAgreement
+                        agreeToTerms={agreeToTerms}
+                        handleSetError={handleSetError}
+                        handleAgreeToTerms={handleAgreeToTerms}
+                    />
+                )}
+            </OnboardingContainer>
         );
     }
 }
