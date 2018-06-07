@@ -29,6 +29,8 @@ export const generateLoanDescriptionImage = (parameters: LoanDescriptionImagePar
         termLength: parameters.termLength,
     };
 
+    console.log(process.env.TEST);
+
     // Invoke Lambda event
     const lambda = new AWS.Lambda({
         accessKeyId: process.env.AWS_IMAGE_GENERATOR_LAMBDA_ACCESS_KEY_ID,
