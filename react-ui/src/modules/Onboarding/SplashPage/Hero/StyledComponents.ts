@@ -25,7 +25,7 @@ export const Title = styled.div`
     font-size: 40px;
     margin-bottom: 30px;
     color: ${color.dharmaBlue};
-    
+
     @media (max-width: 700px) {
         font-size: 30px;
     }
@@ -39,7 +39,7 @@ export const SubTitle = styled.div`
     font-size: 40px;
     margin-bottom: 40px;
     line-height: 50px;
-    
+
     @media (max-width: 700px) {
         font-size: 30px;
         line-height: 36px;
@@ -70,7 +70,7 @@ export const Button = styled.div`
     margin-top: 20px;
     transition: color 0.5s, background 0.5s, border 0.5s;
     width: 300px;
-    
+
     &:hover {
         cursor: pointer;
     }
@@ -80,7 +80,7 @@ export const BlocksBetweenContainer = styled.div`
     transition: opacity 1s;
     transition-delay: 0.5s;
     justify-content: space-between;
-    
+
     @media (max-width: 600px) {
         flex-wrap: wrap;
     }
@@ -91,9 +91,9 @@ export const HeroContainer = styled.div`
     flex-flow: row nowrap;
     height: 100%;
     max-width: 1200px;
-    
+
     margin: 120px auto 80px auto;
-    
+
     @media (max-width: 600px) {
         margin: 40px auto 0 auto;
     }
@@ -102,7 +102,7 @@ export const HeroContainer = styled.div`
 export const HeroDescription = styled.div`
     width: 50%;
     padding-right: 80px;
-    
+
     @media (max-width: 600px) {
         width: 100%;
         padding: 20px;
@@ -111,14 +111,14 @@ export const HeroDescription = styled.div`
 
 export const HeroImage = styled.div`
     width: 50%;
-    
+
     width: 300px;
     margin: 0 auto;
-    
+
     img {
         width: 100%;
     }
-    
+
     @media (max-width: 600px) {
         display: none;
     }

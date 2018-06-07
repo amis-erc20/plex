@@ -40,7 +40,7 @@ export class Onboarding extends React.Component<Props, State> {
 
         return (
             <OnboardingContainer>
-                <Navigation/>
+                <Navigation />
 
                 {step === 0 ? (
                     <SplashPage handleEnterApp={this.handleEnterApp} />

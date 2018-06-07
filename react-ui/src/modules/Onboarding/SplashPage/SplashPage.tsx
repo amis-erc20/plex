@@ -17,7 +17,7 @@ export default class SplashPage extends React.Component<Props, {}> {
         return (
             <div>
                 <Hero handleEnterApp={handleEnterApp} />
-                <Explainer/>
+                <Explainer />
             </div>
         );
     }

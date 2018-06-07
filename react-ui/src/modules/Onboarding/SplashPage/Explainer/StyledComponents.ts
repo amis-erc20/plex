@@ -5,12 +5,12 @@ import { color, fontSize } from "../../../../theme";
 export const Wrapper = styled.div`
     width: 100%;
     position: relative;
-    
+
     background: ${color.dharmaGreen};
-    
+
     margin: 0;
     margin-top: 200px;
-    
+
     &:before {
         content: "";
         position: absolute;
@@ -26,15 +26,15 @@ export const Wrapper = styled.div`
 export const ExplainerContent = styled.div`
     max-width: 650px;
     margin: 0 auto;
-    
+
     padding: 80px 20px;
-    
+
     color: ${color.white};
-    
+
     p {
         font-size: ${fontSize.body};
     }
-    
+
     a {
         color: ${color.dharmaOrange};
         text-decoration: underline;

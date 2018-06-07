@@ -9,10 +9,10 @@ export const NavBarContainer = styled.div`
 export const NavBar = styled.div`
     padding: 30px 20px;
     max-width: 1200px;
-    margin: 0 auto; 
-    
+    margin: 0 auto;
+
     display: flex;
-    
+
     @media (max-width: 600px) {
         display: block;
     }
@@ -38,10 +38,10 @@ export const MenuRight = styled.div`
 export const MenuItem = styled.div`
     display: inline-block;
     margin: 0 20px;
-    
+
     a {
         color: ${color.dharmaBlue};
-        
+
         &:hover {
             color: ${color.dharmaGreen};
         }
