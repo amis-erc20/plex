@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link, browserHistory } from "react-router";
 import { ClipLoader } from "react-spinners";
 import * as _ from "lodash";
-import { Helmet } from "react-helmet";
 
 import { amortizationUnitToFrequency, Analytics, debtOrderFromJSON } from "../../../utils";
 import { PaperLayout } from "../../../layouts";
@@ -454,19 +453,6 @@ class FillLoanEntered extends React.Component<Props, States> {
                         onRedirect={this.handleRedirect}
                     />
                 </MainWrapper>
-                <Helmet>
-                    <meta
-                        property="og:image"
-                        content={`http://s3.amazonaws.com/open-graph.dharma.io/${issuanceHash}.png`}
-                    />
-                    <meta
-                        property="og:image:secure_url"
-                        content={`https://s3.amazonaws.com/open-graph.dharma.io/${issuanceHash}.png`}
-                    />
-                    <meta property="og:image:type" content="image/png" />
-                    <meta property="og:image:width" content="1640" />
-                    <meta property="og:image:height" content="860" />
-                </Helmet>
             </PaperLayout>
         );
     }

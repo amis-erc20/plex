@@ -32,12 +32,7 @@ import {
 import { RequestLoanDescription } from "./RequestLoanDescription";
 
 // Utils
-import {
-    Analytics,
-    generateDebtQueryParams,
-    generateLoanDescriptionImage,
-    LoanDescriptionImageParameters,
-} from "../../../utils";
+import { Analytics, generateDebtQueryParams } from "../../../utils";
 
 // Validators
 import { validateTermLength, validateInterestRate, validateCollateral } from "./validator";
@@ -237,13 +232,7 @@ class RequestLoanForm extends React.Component<Props, State> {
     }
 
     async handleSignDebtOrder() {
-        const {
-            collateralTokenAmount,
-            debtOrderInstance,
-            description,
-            issuanceHash,
-            principalTokenAmount,
-        } = this.state;
+        const { debtOrderInstance, description, issuanceHash, principalTokenAmount } = this.state;
         const { handleSetError, updateDebtEntity, shortenUrl, setPendingDebtEntity } = this.props;
 
         try {
@@ -322,15 +311,6 @@ class RequestLoanForm extends React.Component<Props, State> {
 
             updateDebtEntity(debtEntity);
             setPendingDebtEntity(debtEntity.issuanceHash);
-
-            // Generate loan description image for open graph
-            const loanDescriptionImageParameters: LoanDescriptionImageParameters = {
-                collateralTokenAmount,
-                principalTokenAmount,
-                ...debtQueryParams,
-            };
-
-            generateLoanDescriptionImage(loanDescriptionImageParameters);
 
             browserHistory.push(`/request/success/?issuanceHash=${debtEntity.issuanceHash}`);
         } catch (e) {
