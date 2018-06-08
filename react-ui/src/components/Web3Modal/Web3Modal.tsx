@@ -21,7 +21,7 @@ class Web3Modal extends React.Component<Props, State> {
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.showWeb3BrowserModal) {
+        if (nextProps.isMobileBrowser || nextProps.showWeb3BrowserModal) {
             this.setState({ showModal: true });
         }
     }
@@ -29,24 +29,7 @@ class Web3Modal extends React.Component<Props, State> {
     render() {
         const { isMobileBrowser } = this.props;
 
-        const toshi = require("../../assets/img/web3/toshi.png");
-        const trustWallet = require("../../assets/img/web3/trust_wallet.png");
         const metamask = require("../../assets/img/web3/metamask.png");
-
-        const mobileBrowsers = (
-            <div>
-                <Web3BrowserIconWrapper>
-                    <a href="https://www.toshi.org/" target="_blank">
-                        <Web3BrowserIcon src={toshi} alt="Toshi" />
-                    </a>
-                </Web3BrowserIconWrapper>
-                <Web3BrowserIconWrapper>
-                    <a href="https://trustwalletapp.com/" target="_blank">
-                        <Web3BrowserIcon src={trustWallet} alt="Trust Wallet" />
-                    </a>
-                </Web3BrowserIconWrapper>
-            </div>
-        );
 
         const desktopBrowsers = (
             <div>
@@ -60,8 +43,9 @@ class Web3Modal extends React.Component<Props, State> {
 
         const mobilePreamble = (
             <div>
-                In order to use Dharma Plex from your phone, you will need to access it from one of
-                the below Web3 browsers available for download on the app store.
+                In order to use Dharma Plex, you will need to use a desktop computer and the
+                MetaMask browser extension, available for Chrome, Firefox, Opera, and the new Brave
+                browser.
             </div>
         );
 
@@ -72,8 +56,6 @@ class Web3Modal extends React.Component<Props, State> {
             </div>
         );
 
-        const browserIcons = isMobileBrowser ? mobileBrowsers : desktopBrowsers;
-
         const preamble = isMobileBrowser ? mobilePreamble : desktopPreamble;
 
         const content = (
@@ -83,11 +65,13 @@ class Web3Modal extends React.Component<Props, State> {
                     that it needs to be plugged into the Ethereum blockchain.
                 </p>
                 <p>{preamble}</p>
-                <Web3BrowserIcons>{browserIcons}</Web3BrowserIcons>
+                {!isMobileBrowser && <Web3BrowserIcons>{desktopBrowsers}</Web3BrowserIcons>}
             </div>
         );
 
-        const title = "Your browser isn't Web3-enabled";
+        const title = isMobileBrowser
+            ? "You must be on desktop to use Plex"
+            : "Your browser isn't Web3-enabled";
         const icon = "exclamation-triangle";
 
         return (
