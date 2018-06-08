@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { Terms } from "./Terms";
-import { agreeToTerms } from "../Welcome/actions";
+
+// HACK: This is a strange coupling. TODO: Decouple this.
+import { agreeToTerms } from "../Onboarding/TermsAgreement/actions";
 
 const mapStateToProps = (state: any) => {
     return {

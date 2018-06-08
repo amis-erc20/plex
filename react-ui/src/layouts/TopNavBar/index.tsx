@@ -45,6 +45,7 @@ class TopNavBar extends React.Component<Props, TopNavBarState> {
                 </StyledLink>
             </StyledNavItem>
         ));
+
         return (
             <Wrapper>
                 <Navbar color="faded" light={true} expand="md">

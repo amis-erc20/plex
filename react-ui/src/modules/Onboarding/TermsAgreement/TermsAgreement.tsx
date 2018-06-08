@@ -1,6 +1,14 @@
+// External libraries
 import * as React from "react";
-import { PaperLayout } from "../../layouts";
-import { MainWrapper, Checkbox } from "../../components";
+import { browserHistory } from "react-router";
+
+// Layouts
+import { PaperLayout } from "../../../layouts";
+
+// Components
+import { MainWrapper, Checkbox } from "../../../components";
+
+// Styled components
 import {
     BannerContainer,
     Header,
@@ -9,7 +17,6 @@ import {
     NextButton,
     StyledLink,
 } from "./styledComponents";
-import { browserHistory } from "react-router";
 
 interface Props {
     agreeToTerms: boolean;
@@ -21,11 +28,13 @@ interface State {
     agreeToTermsOfUse: boolean;
 }
 
-class Welcome extends React.Component<Props, State> {
+class TermsAgreement extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
+
         this.handleAgreeChange = this.handleAgreeChange.bind(this);
         this.checkAgree = this.checkAgree.bind(this);
+
         this.state = {
             agreeToTermsOfUse: false,
         };
@@ -51,11 +60,14 @@ class Welcome extends React.Component<Props, State> {
 
     checkAgree() {
         this.props.handleSetError("");
+
         if (!this.state.agreeToTermsOfUse) {
             this.props.handleSetError("You have to agree to the terms of use to continue");
             return;
         }
+
         this.props.handleAgreeToTerms(true);
+
         browserHistory.push("/request");
     }
 
@@ -94,4 +106,4 @@ class Welcome extends React.Component<Props, State> {
     }
 }
 
-export { Welcome };
+export { TermsAgreement };

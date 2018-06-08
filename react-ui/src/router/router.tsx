@@ -13,7 +13,7 @@ import { AppContainer } from "../AppContainer";
 
 // Layouts
 import {
-    WelcomeContainer,
+    OnboardingContainer,
     FillLoanEmpty,
     DefaultContent,
     TestForm,
@@ -25,6 +25,7 @@ import {
     Privacy,
     EnsureAgreedToTermsContainer,
 } from "../modules";
+
 import { ParentContainer } from "../layouts";
 
 // Actions
@@ -205,28 +206,30 @@ class AppRouter extends React.Component<Props, {}> {
 
         return (
             <Router history={history} onUpdate={this.trackPageView}>
-                <Route path="/" component={AppContainer}>
-                    <IndexRoute component={WelcomeContainer} />
-                    <Route component={EnsureAgreedToTermsContainer}>
-                        <Route path="/dashboard" component={DashboardContainer} />
-                        <Route path="/request" component={ParentContainer}>
-                            <IndexRoute component={RequestLoanFormContainer} />
-                            <Route path="success" component={RequestLoanSuccessContainer} />
+                <Route path="/">
+                    <IndexRoute component={OnboardingContainer} />
+                    <Route path="/" component={AppContainer}>
+                        <Route component={EnsureAgreedToTermsContainer}>
+                            <Route path="/dashboard" component={DashboardContainer} />
+                            <Route path="/request" component={ParentContainer}>
+                                <IndexRoute component={RequestLoanFormContainer} />
+                                <Route path="success" component={RequestLoanSuccessContainer} />
+                            </Route>
                         </Route>
+                        <Route path="/fill" component={ParentContainer}>
+                            <IndexRoute component={FillLoanEmpty} />
+                            <Route path="loan" component={FillLoanEnteredContainer} />
+                        </Route>
+                        <Route path="/plex" component={DefaultContent} />
+                        <Route path="/whitepaper" component={DefaultContent} />
+                        <Route path="/blog" component={DefaultContent} />
+                        <Route path="/github" component={DefaultContent} />
+                        <Route path="/chat" component={DefaultContent} />
+                        <Route path="/twitter" component={DefaultContent} />
+                        <Route path="/test" component={TestForm} />
+                        <Route path="/terms" component={TermsContainer} />
+                        <Route path="/privacy" component={Privacy} />
                     </Route>
-                    <Route path="/fill" component={ParentContainer}>
-                        <IndexRoute component={FillLoanEmpty} />
-                        <Route path="loan" component={FillLoanEnteredContainer} />
-                    </Route>
-                    <Route path="/plex" component={DefaultContent} />
-                    <Route path="/whitepaper" component={DefaultContent} />
-                    <Route path="/blog" component={DefaultContent} />
-                    <Route path="/github" component={DefaultContent} />
-                    <Route path="/chat" component={DefaultContent} />
-                    <Route path="/twitter" component={DefaultContent} />
-                    <Route path="/test" component={TestForm} />
-                    <Route path="/terms" component={TermsContainer} />
-                    <Route path="/privacy" component={Privacy} />
                 </Route>
             </Router>
         );

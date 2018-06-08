@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { StyledButton } from "../../components";
+import { StyledButton } from "../../../components";
 import { Link } from "react-router";
-import { fontSize } from "../../theme";
+import { fontSize } from "../../../theme";
 
 export const BannerContainer = styled.div`
     background: rgba(37, 72, 101, 1);

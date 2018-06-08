@@ -1,7 +1,12 @@
+// External libraries
 import { connect } from "react-redux";
-import { Welcome } from "./Welcome";
+
+// Actions
 import { setError } from "../../components/Toast/actions";
-import { agreeToTerms } from "./actions";
+import { agreeToTerms } from "./TermsAgreement/actions";
+
+// Components
+import { Onboarding } from "./Onboarding";
 
 const mapStateToProps = (state: any) => {
     return {
@@ -16,4 +21,4 @@ const mapDispatchToProps = (dispatch: any) => {
     };
 };
 
-export const WelcomeContainer = connect(mapStateToProps, mapDispatchToProps)(Welcome);
+export const OnboardingContainer = connect(mapStateToProps, mapDispatchToProps)(Onboarding);

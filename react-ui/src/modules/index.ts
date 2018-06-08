@@ -1,4 +1,4 @@
-export * from "./Welcome";
+export * from "./Onboarding/OnboardingContainer";
 export * from "./DefaultContent";
 export * from "./RequestLoan";
 export * from "./FillLoan";
