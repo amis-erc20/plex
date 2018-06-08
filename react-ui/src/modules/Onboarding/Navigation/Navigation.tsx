@@ -1,6 +1,6 @@
 // External libraries
 import * as React from "react";
-import { IndexLink, Link } from "react-router";
+import { IndexLink } from "react-router";
 
 // Styled components
 import {
@@ -25,19 +25,27 @@ export class Navigation extends React.Component<{}, {}> {
 
                     <MenuRight>
                         <MenuItem>
-                            <Link to="https://docs.dharma.io">Developer Documentation</Link>
+                            <a href="https://docs.dharma.io" target="_blank">
+                                Developer Documentation
+                            </a>
                         </MenuItem>
 
                         <MenuItem>
-                            <Link to="https://chat.dharma.io/">Chat</Link>
+                            <a href="https://chat.dharma.io" target="_blank">
+                                Chat
+                            </a>
                         </MenuItem>
 
                         <MenuItem>
-                            <Link to="https://blog.dharma.io">Blog</Link>
+                            <a href="https://blog.dharma.io" target="_blank">
+                                Blog
+                            </a>
                         </MenuItem>
 
                         <MenuItem>
-                            <Link to="https://www.reddit.com/r/DharmaProtocol/">Reddit</Link>
+                            <a href="https://www.reddit.com/r/DharmaProtocol/" target="_blank">
+                                Reddit
+                            </a>
                         </MenuItem>
                     </MenuRight>
                 </NavBar>
