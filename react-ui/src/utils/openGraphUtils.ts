@@ -29,6 +29,7 @@ export const generateLoanDescriptionImage = (parameters: LoanDescriptionImagePar
         termLength: parameters.termLength,
     };
 
+    console.log(process.env.REACT_APP_BITLY_ACCESS_TOKEN);
     console.log(process.env.TEST);
 
     // Invoke Lambda event
