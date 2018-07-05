@@ -53,18 +53,18 @@ class ConfirmOpenLoanModal extends React.Component<Props, State> {
         this.state = {};
     }
 
-    async componentDidMount() {
-        await this.getUsdAmounts();
-        this.calculateTotalOfPayments();
+    async componentWillReceiveProps(nextProps: Props) {
+        await this.getUsdAmounts(nextProps);
+        this.calculateTotalOfPayments(nextProps);
     }
 
-    async getUsdAmounts() {
+    async getUsdAmounts(props: Props) {
         const {
             collateralTokenAmount,
             interestRate,
             principalTokenAmount,
             termLength,
-        } = this.props;
+        } = props;
 
         const perPaymentTokenAmount = new Types.TokenAmount({
             amount: principalTokenAmount.rawAmount
@@ -86,8 +86,8 @@ class ConfirmOpenLoanModal extends React.Component<Props, State> {
         });
     }
 
-    calculateTotalOfPayments() {
-        const { termLength } = this.props;
+    calculateTotalOfPayments(props: Props) {
+        const { termLength } = props;
 
         const { perPaymentTokenAmount, perPaymentUsdAmount } = this.state;
 
