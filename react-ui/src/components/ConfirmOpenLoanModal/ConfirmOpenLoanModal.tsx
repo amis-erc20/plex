@@ -59,12 +59,7 @@ class ConfirmOpenLoanModal extends React.Component<Props, State> {
     }
 
     async getUsdAmounts(props: Props) {
-        const {
-            collateralTokenAmount,
-            interestRate,
-            principalTokenAmount,
-            termLength,
-        } = props;
+        const { collateralTokenAmount, interestRate, principalTokenAmount, termLength } = props;
 
         const perPaymentTokenAmount = new Types.TokenAmount({
             amount: principalTokenAmount.rawAmount
