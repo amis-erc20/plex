@@ -78,28 +78,6 @@ describe("ConfirmOpenLoanModal (Unit)", () => {
         });
     });
 
-    describe("#componentDidMount", () => {
-        it("should call #getUsdAmounts", async () => {
-            const getUsdAmountsSpy = jest
-                .spyOn(confirmOpenLoanModalInstance, "getUsdAmounts")
-                .mockImplementation(jest.fn());
-
-            await confirmOpenLoanModalInstance.componentDidMount();
-
-            expect(getUsdAmountsSpy).toHaveBeenCalled();
-        });
-
-        it("should call #calculateTotalOfPayments", async () => {
-            const calculateTotalOfPaymentsSpy = jest
-                .spyOn(confirmOpenLoanModalInstance, "calculateTotalOfPayments")
-                .mockImplementation(jest.fn());
-
-            await confirmOpenLoanModalInstance.componentDidMount();
-
-            expect(calculateTotalOfPaymentsSpy).toHaveBeenCalled();
-        });
-    });
-
     describe("#getUsdAmounts", async () => {
         it("should calculate and set the perPaymentTokenAmount", async () => {
             await confirmOpenLoanModalInstance.getUsdAmounts();
