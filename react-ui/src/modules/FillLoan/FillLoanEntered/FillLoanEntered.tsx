@@ -31,9 +31,10 @@ import { Dharma, Types } from "@dharmaprotocol/dharma.js";
 import { BigNumber } from "bignumber.js";
 import { OpenCollateralizedDebtEntity, TokenEntity } from "../../../models";
 import { web3Errors } from "src/common/web3Errors";
-import { BLOCKCHAIN_API } from "../../../common/constants";
+import { BLOCKCHAIN_API, FROZEN_TOKENS } from "../../../common/constants";
 import { BarLoader } from "react-spinners";
 import { CollateralizedSimpleInterestTermsContractParameters } from "@dharmaprotocol/dharma.js/dist/types/src/adapters/collateralized_simple_interest_loan_adapter";
+import FrozenTokenWarning from "./FrozenTokenWarning";
 
 const ERROR_MESSAGE_MAPPING = {
     "User denied transaction signature": "Wallet has denied transaction.",
@@ -349,6 +350,9 @@ class FillLoanEntered extends React.Component<Props, States> {
             );
         }
 
+        const isTokenFrozen = _.includes(FROZEN_TOKENS, principalTokenAmount.tokenSymbol) ||
+            _.includes(FROZEN_TOKENS, collateralTokenAmount.tokenSymbol);
+
         const leftInfoItems = [
             {
                 title: "Principal",
@@ -394,12 +398,14 @@ class FillLoanEntered extends React.Component<Props, States> {
             </InfoItem>
         ));
 
-        const descriptionContent = (
-            <span>
-                Here are the details of loan request <Bold>{issuanceHash}</Bold>. If the terms look
-                fair to you, fill the loan and your transaction will be completed.
-            </span>
-        );
+        const descriptionContent = isTokenFrozen
+            ? <FrozenTokenWarning tokenName={principalTokenAmount.tokenName}/>
+            : (
+                <span>
+                    Here are the details of loan request <Bold>{issuanceHash}</Bold>. If the terms look
+                    fair to you, fill the loan and your transaction will be completed.
+                </span>
+            );
         return (
             <PaperLayout>
                 <MainWrapper>
@@ -414,17 +420,22 @@ class FillLoanEntered extends React.Component<Props, States> {
                             </InfoItem>
                         </Col>
                     </LoanInfoContainer>
-                    <ButtonContainer>
-                        <Link to="/fill">
-                            <DeclineButton>Decline</DeclineButton>
-                        </Link>
-                        <FillLoanButton
-                            onClick={this.confirmationModalToggle}
-                            disabled={this.state.awaitingTransaction}
-                        >
-                            Fill Loan
-                        </FillLoanButton>
-                    </ButtonContainer>
+
+                    {
+                        isTokenFrozen
+                            ? null
+                            : <ButtonContainer>
+                                <Link to="/fill">
+                                    <DeclineButton>Decline</DeclineButton>
+                                </Link>
+                                <FillLoanButton
+                                    onClick={this.confirmationModalToggle}
+                                    disabled={this.state.awaitingTransaction}
+                                >
+                                    Fill Loan
+                                </FillLoanButton>
+                            </ButtonContainer>
+                    }
 
                     {this.state.awaitingTransaction && (
                         <Content style={{ textAlign: "center" }}>
