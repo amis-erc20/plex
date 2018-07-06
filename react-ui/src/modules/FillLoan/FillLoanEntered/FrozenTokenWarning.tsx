@@ -12,8 +12,8 @@ export default class FrozenTokenWarning extends React.Component<Props, {}> {
 
         return (
             <FrozenTokenWarningWrapper>
-                The {tokenName} token in this order is currently frozen. Therefore, we
-                are unable to fill this order at present.
+                The {tokenName} token in this order is currently frozen. Therefore, we are unable to
+                fill this order at present.
             </FrozenTokenWarningWrapper>
         );
     }

@@ -44,12 +44,11 @@ export const InfoItem = styled.div`
 export const FrozenTokenWarningWrapper = styled.div`
     margin: 30px 0;
     padding: 10px;
-    
+
     font-family: DIN-Bold;
     font-size: 17px;
     text-align: center;
-    
-    
+
     color: #002326;
     background-color: #e93d59;
 `;
