@@ -144,7 +144,7 @@
             "global": {
                 "branches": 30,
                 "functions": 40,
-                "lines": 40,
+                "lines": 35,
                 "statements": 40
             }
         },
