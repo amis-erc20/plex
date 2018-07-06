@@ -12,8 +12,8 @@ export default class FrozenTokenWarning extends React.Component<Props, {}> {
 
         return (
             <FrozenTokenWarningWrapper>
-                The lending of {tokenName} token is temporarily currently frozen on Plex.
-                Therefore, we are unable to fill this order at present.
+                The lending of {tokenName} token is temporarily frozen on Plex. Therefore, we are
+                unable to fill this order at present.
             </FrozenTokenWarningWrapper>
         );
     }
