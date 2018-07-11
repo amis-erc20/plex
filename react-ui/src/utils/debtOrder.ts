@@ -90,9 +90,6 @@ export const debtOrderFromJSON = (debtOrderJSON: string) => {
     ) {
         debtOrder.expirationTimestampInSec = new BigNumber(debtOrder.expirationTimestampInSec);
     }
-    if (debtOrder.gracePeriodInDays && !(debtOrder.gracePeriodInDays instanceof BigNumber)) {
-        debtOrder.gracePeriodInDays = new BigNumber(debtOrder.gracePeriodInDays);
-    }
     if (debtOrder.salt && !(debtOrder.salt instanceof BigNumber)) {
         debtOrder.salt = new BigNumber(debtOrder.salt);
     }

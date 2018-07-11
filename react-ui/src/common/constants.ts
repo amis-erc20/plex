@@ -1,3 +1,5 @@
+import { BigNumber } from "bignumber.js";
+
 export const KOVAN_NETWORK_ID = 42;
 export const LOCAL_NETWORK_ID = 1457;
 export const MAINNET_NETWORK_ID = 1;
@@ -25,3 +27,5 @@ export const BLOCKCHAIN_API = {
     POLLING_INTERVAL: 1000,
     TIMEOUT: 60000,
 };
+
+export const DEFAULT_GRACE_PERIOD = new BigNumber(0);

@@ -494,7 +494,6 @@ class ActiveDebtOrder extends React.Component<Props, State> {
         );
         let terms = "Simple Interest (Non-Collateralized)";
         let collateral = null;
-        let gracePeriod = null;
 
         if (debtEntity instanceof FilledCollateralizedDebtEntity) {
             terms = "Simple Interest (Collateralized)";
@@ -509,14 +508,6 @@ class ActiveDebtOrder extends React.Component<Props, State> {
                                 tokenSymbol={debtEntity.collateralTokenSymbol!}
                             />
                         </InfoItemContent>
-                    </InfoItem>
-                </Col>
-            );
-            gracePeriod = (
-                <Col xs="8" sm="8" md="8" lg="2">
-                    <InfoItem>
-                        <InfoItemTitle>Grace period</InfoItemTitle>
-                        <InfoItemContent>{debtEntity.gracePeriodInDays + " days"}</InfoItemContent>
                     </InfoItem>
                 </Col>
             );
@@ -668,7 +659,6 @@ class ActiveDebtOrder extends React.Component<Props, State> {
                                 </InfoItem>
                             </Col>
                             {collateral}
-                            {gracePeriod}
                             <Col xs="12" sm="12" md="12" lg="2">
                                 <InfoItem>
                                     <InfoItemTitle>Description</InfoItemTitle>

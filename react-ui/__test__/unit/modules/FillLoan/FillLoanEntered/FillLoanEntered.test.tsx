@@ -45,7 +45,6 @@ describe('<FillLoanEntered />', () => {
 			debtorSignature: '{"v":27,"r":"0xc5c0aaf7b812cb865aef48958e2d39686a13c292f8bd4a82d7b43d833fb5047d","s":"0x2fbbe9f0b8e12ed2875905740fa010bbe710c3e0c131f1efe14fb41bb7921788"}',
 			description: 'Hello, Can I borrow some MKR please?',
 			expirationTimestampInSec: 1524613355,
-			gracePeriodInDays: 1,
 			interestRate: 5,
 			issuanceHash: '0x3d8e76d2022e017c6c276b44cb2e4c71bd3cc3df',
 			issuanceVersion: '0x1d8e76d2022e017c6c276b44cb2e4c71bd3cc3de',

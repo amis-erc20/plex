@@ -24,6 +24,7 @@ import MockDharma from "../../../../../__mocks__/dharma.js";
 
 // Utils
 import { debtOrderFromJSON, numberToScaledBigNumber } from "../../../../../src/utils";
+import { DEFAULT_GRACE_PERIOD } from "../../../../../src/common/constants";
 
 import MockBitlyClient from "../../../../../__mocks__/BitlyClient";
 
@@ -150,8 +151,7 @@ describe("<RequestLoanForm />", () => {
             },
             collateral: {
                 collateralAmount: 10,
-                collateralTokenSymbol: "REP",
-                gracePeriodInDays: 3,
+                collateralTokenSymbol: "REP"
             },
         };
 
@@ -163,7 +163,7 @@ describe("<RequestLoanForm />", () => {
             termLength: new BigNumber(formData.terms.termLength),
             collateralAmount: numberToScaledBigNumber(formData.collateral.collateralAmount, 18),
             collateralTokenSymbol: formData.collateral.collateralTokenSymbol,
-            gracePeriodInDays: new BigNumber(formData.collateral.gracePeriodInDays),
+            gracePeriodInDays: DEFAULT_GRACE_PERIOD,
         };
 
         beforeEach(() => {

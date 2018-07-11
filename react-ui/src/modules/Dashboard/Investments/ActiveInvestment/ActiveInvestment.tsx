@@ -235,7 +235,6 @@ class ActiveInvestment extends React.Component<Props, State> {
         });
 
         let collateral = null;
-        let gracePeriod = null;
         let seizeCollateralModalContent = <div />;
         let terms = "Simple Interest (Non-Collateralized)";
 
@@ -243,7 +242,6 @@ class ActiveInvestment extends React.Component<Props, State> {
             collateralAmount,
             collateralSeizable,
             collateralTokenSymbol,
-            gracePeriodInDays,
             issuanceHash,
         } = investment;
 
@@ -270,14 +268,6 @@ class ActiveInvestment extends React.Component<Props, State> {
                                 tokenSymbol={collateralTokenSymbol}
                             />
                         </InfoItemContent>
-                    </InfoItem>
-                </Col>
-            );
-            gracePeriod = (
-                <Col xs="8" md="4">
-                    <InfoItem>
-                        <InfoItemTitle>Grace period</InfoItemTitle>
-                        <InfoItemContent>{gracePeriodInDays + " days"}</InfoItemContent>
                     </InfoItem>
                 </Col>
             );
@@ -401,7 +391,6 @@ class ActiveInvestment extends React.Component<Props, State> {
                                 </InfoItem>
                             </Col>
                             {collateral}
-                            {gracePeriod}
                         </Row>
                     </Drawer>
                 </Collapse>

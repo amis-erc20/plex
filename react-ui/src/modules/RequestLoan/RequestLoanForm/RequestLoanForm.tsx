@@ -41,6 +41,7 @@ import { validateTermLength, validateInterestRate, validateCollateral } from "./
 import { web3Errors } from "../../../common/web3Errors";
 import { JSONSchema4 } from "json-schema";
 import { Loading } from "../../Loading";
+import { DEFAULT_GRACE_PERIOD } from "../../../common/constants";
 
 interface Props {
     web3: Web3;
@@ -59,7 +60,6 @@ interface RequiredState {
     description: string;
     formBegun: boolean;
     formData: any;
-    gracePeriodInDays: BigNumber;
     issuanceHash: string;
 }
 
@@ -80,7 +80,6 @@ class RequestLoanForm extends React.Component<Props, State> {
         description: "",
         formBegun: false,
         formData: {},
-        gracePeriodInDays: new BigNumber(0),
         issuanceHash: "",
     };
 
@@ -158,18 +157,7 @@ class RequestLoanForm extends React.Component<Props, State> {
                     }),
                 });
             }
-
-            this.setGracePeriod(formData);
         }
-    }
-
-    setGracePeriod(formData: any) {
-        const formPeriod = formData.collateral.gracePeriodInDays;
-        const defaultPeriod = this.defaultState.gracePeriodInDays!;
-
-        this.setState({
-            gracePeriodInDays: formPeriod ? new BigNumber(formPeriod) : defaultPeriod,
-        });
     }
 
     async handleSubmit() {
@@ -177,7 +165,6 @@ class RequestLoanForm extends React.Component<Props, State> {
         const {
             amortizationUnit,
             collateralTokenAmount,
-            gracePeriodInDays,
             interestRate,
             principalTokenAmount,
             termLength,
@@ -204,7 +191,7 @@ class RequestLoanForm extends React.Component<Props, State> {
                 amortizationUnit: amortizationUnit!,
                 collateralAmount: collateralTokenAmount!.rawAmount,
                 collateralTokenSymbol: collateralTokenAmount!.tokenSymbol,
-                gracePeriodInDays: gracePeriodInDays,
+                gracePeriodInDays: DEFAULT_GRACE_PERIOD,
                 interestRate: interestRate!,
                 principalAmount: principalTokenAmount!.rawAmount,
                 principalTokenSymbol: principalTokenAmount!.tokenSymbol,

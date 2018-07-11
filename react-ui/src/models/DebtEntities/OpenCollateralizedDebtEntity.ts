@@ -5,7 +5,6 @@ import { CollateralParameters } from "../DebtInterfaces";
 export class OpenCollateralizedDebtEntity extends OpenDebtEntity implements CollateralParameters {
     collateralAmount: BigNumber; // raw amount
     collateralTokenSymbol: string;
-    gracePeriodInDays: BigNumber;
 
     /**
      * Returns the missing parameters of an instance of an OpenCollateralizedDebtEntity.
@@ -25,7 +24,6 @@ export class OpenCollateralizedDebtEntity extends OpenDebtEntity implements Coll
 
             "collateralAmount",
             "collateralTokenSymbol",
-            "gracePeriodInDays",
         ];
 
         const missingParameters: string[] = [];

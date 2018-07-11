@@ -103,14 +103,6 @@ class RequestLoanSummary extends React.Component<Props, State> {
                 </Content>
             </InfoItem>
         );
-        const gracePeriod = (
-            <InfoItem>
-                <Title>Grace Period</Title>
-                <Content>
-                    {debtEntity.gracePeriodInDays.toNumber()} {"days"}
-                </Content>
-            </InfoItem>
-        );
 
         return (
             <Wrapper>
@@ -143,7 +135,6 @@ class RequestLoanSummary extends React.Component<Props, State> {
                                 <Title>Installment Frequency</Title>
                                 <Content>{installmentFrequency}</Content>
                             </InfoItem>
-                            {gracePeriod}
                         </Col>
                         <Col xs="12">
                             <InfoItem>

@@ -102,7 +102,6 @@ class Dashboard extends React.Component<Props, States> {
                         creditor: debtRegistryEntry.beneficiary,
                         debtor: accounts[0],
                         dharmaOrder: dharmaDebtOrder,
-                        gracePeriodInDays: dharmaDebtOrder.gracePeriodInDays,
                         interestRate: dharmaDebtOrder.interestRate,
                         issuanceHash,
                         principalAmount: dharmaDebtOrder.principalAmount,
@@ -197,7 +196,6 @@ class Dashboard extends React.Component<Props, States> {
                     investment.collateralAmount = dharmaDebtOrder.collateralAmount;
                     investment.collateralized = true;
                     investment.collateralTokenSymbol = dharmaDebtOrder.collateralTokenSymbol;
-                    investment.gracePeriodInDays = dharmaDebtOrder.gracePeriodInDays;
 
                     const collateralizedAdapter = await dharma.adapters
                         .collateralizedSimpleInterestLoan;

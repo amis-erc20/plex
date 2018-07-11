@@ -67,7 +67,7 @@ export const schema: JSONSchema4 = {
         collateral: {
             type: "object",
             title: "Collateralize your loan",
-            required: ["collateralAmount", "collateralTokenSymbol", "gracePeriodInDays"],
+            required: ["collateralAmount", "collateralTokenSymbol"],
             description: singleLineString`Collateral is an item of value that a borrower puts up for
                                           possible seizure in the event that they do not pay back
                                           the full value of their loan. Collateral protects lenders
@@ -82,14 +82,6 @@ export const schema: JSONSchema4 = {
                 },
                 collateralTokenSymbol: {
                     $ref: "#/definitions/tokens",
-                },
-                gracePeriodInDays: {
-                    type: "number",
-                    title: "Grace Period",
-                    description: singleLineString`If a loan is in default after its term has
-                                                  expired, the grace period specifies the number of
-                                                  days before the collateral can be seized by
-                                                  creditor.`,
                 },
             },
         },
@@ -144,13 +136,6 @@ export const uiSchema = {
                 pressEnter: false,
             },
             classNames: "inline-field width35 padding-top",
-        },
-        gracePeriodInDays: {
-            "ui:placeholder": "Grace period (days)",
-            "ui:options": {
-                pressEnter: false,
-            },
-            classNames: "group-field",
         },
     },
     terms: {

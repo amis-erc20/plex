@@ -63,7 +63,6 @@ interface States {
     confirmationModal: boolean;
     debtEntity?: OpenCollateralizedDebtEntity;
     description: string;
-    gracePeriodInDays?: BigNumber;
     initializing: boolean;
     interestRate: BigNumber;
     issuanceHash: string;
@@ -177,7 +176,6 @@ class FillLoanEntered extends React.Component<Props, States> {
             amortizationUnit: unpackedParameters.amortizationUnit,
             collateralTokenAmount,
             description,
-            gracePeriodInDays: unpackedParameters.gracePeriodInDays,
             initializing: false,
             interestRate: unpackedParameters.interestRate,
             issuanceHash: urlParams.issuanceHash,
@@ -313,7 +311,6 @@ class FillLoanEntered extends React.Component<Props, States> {
             amortizationUnit,
             collateralTokenAmount,
             description,
-            gracePeriodInDays,
             initializing,
             interestRate,
             issuanceHash,
@@ -375,14 +372,10 @@ class FillLoanEntered extends React.Component<Props, States> {
             },
         ];
 
-        if (collateralTokenAmount && gracePeriodInDays != null) {
+        if (collateralTokenAmount) {
             leftInfoItems.push({
                 title: "Collateral",
                 content: collateralTokenAmount.toString(),
-            });
-            rightInfoItems.push({
-                title: "Grace period",
-                content: `${gracePeriodInDays.toNumber()} days`,
             });
         }
 

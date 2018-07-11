@@ -9,7 +9,6 @@ export class InvestmentEntity {
     collateralWithdrawn: boolean;
     creditor: string;
     earnedAmount: BigNumber;
-    gracePeriodInDays?: BigNumber;
     interestRate: BigNumber;
     issuanceHash: string;
     principalAmount: BigNumber;
